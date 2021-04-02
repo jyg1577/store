@@ -26,15 +26,17 @@ const routes = [
     component: () => import('@/views/Fresh.vue')
   },
   {
+    path: '/Detailpage/:id',
+    name: 'Detailpage',
+    component: () => import('@/views/Detailpage.vue')
+  },
+  {
     path: '/cart',
     name: 'cart',
     component: () => import('@/views/Cart.vue')
   },
-  {
-    path: '/Detailpage',
-    name: 'Detailpage',
-    component: () => import('@/views/Detailpage.vue')
-  }
+
+
 ]
 
 const router = new VueRouter({

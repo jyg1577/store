@@ -3,7 +3,6 @@
     <div class="image-container">
       <img src="../image/fresh.jpg" />
     </div>
-
     <item-list></item-list>
   </div>
 </template>
@@ -16,5 +15,6 @@ export default {
     ItemList,
   },
   data: () => ({}),
+  methods: {},
 };
 </script>

@@ -19,10 +19,6 @@
       <v-tab class="pa-0"
         ><router-link to="/cart" class="tab-menu">장바구니</router-link></v-tab
       >
-
-      <!-- <v-tab v-for="(item, i) in items" :key="i" @click="navigateTo(item)">
-        {{ item.text }}
-      </v-tab> -->
     </v-tabs>
     <router-view></router-view>
   </v-app>
@@ -49,7 +45,6 @@ export default {
   methods: {},
   mounted() {
     // 현재 route 경로를 읽어서 focus를 바꿔야함
-
     ("/");
     this.selectedTab = 0;
   },

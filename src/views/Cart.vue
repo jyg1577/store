@@ -1,68 +1,38 @@
 <template>
-  <v-simple-table>
-    <template v-slot:default>
-      <thead>
-        <tr>
-          <th class="text-left">Name</th>
-          <th class="text-left">Calories</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="item in desserts" :key="item.name">
-          <td>{{ item.name }}</td>
-          <td>{{ item.calories }}</td>
-        </tr>
-      </tbody>
+  <v-data-table
+    v-model="selected"
+    :headers="headers"
+    :items="desserts"
+    item-key="name"
+    show-select
+    class="elevation-1"
+  >
+    <v-btn color="orange" text>주문하기</v-btn>
+    <template>
+      <v-switch class="pa-3"></v-switch>
     </template>
-  </v-simple-table>
+  </v-data-table>
 </template>
+
 <script>
+import api from "@/api/purchaseorder";
 export default {
-  data() {
-    return {
-      desserts: [
-        {
-          name: "Frozen Yogurt",
-          calories: 159,
-        },
-        {
-          name: "Ice cream sandwich",
-          calories: 237,
-        },
-        {
-          name: "Eclair",
-          calories: 262,
-        },
-        {
-          name: "Cupcake",
-          calories: 305,
-        },
-        {
-          name: "Gingerbread",
-          calories: 356,
-        },
-        {
-          name: "Jelly bean",
-          calories: 375,
-        },
-        {
-          name: "Lollipop",
-          calories: 392,
-        },
-        {
-          name: "Honeycomb",
-          calories: 408,
-        },
-        {
-          name: "Donut",
-          calories: 452,
-        },
-        {
-          name: "KitKat",
-          calories: 518,
-        },
-      ],
-    };
+  data: () => ({
+    id: "",
+    product: [],
+  }),
+  mounted() {
+    this.getProductsId();
+  },
+  methods: {
+    // 목록 조회 함수
+    async getProductsId() {
+      const id = this.$route.params.id;
+      const result = await api.idSave(id);
+      if (result.status == 200) {
+        this.product = result.data;
+      }
+    },
   },
 };
 </script>

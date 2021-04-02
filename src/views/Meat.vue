@@ -3,9 +3,7 @@
     <div class="image-container">
       <img src="../image/meat.jpg" />
     </div>
-    <div @click="mtDetailpage">
-      <item-list></item-list>
-    </div>
+    <item-list></item-list>
   </div>
 </template>
 
@@ -17,10 +15,6 @@ export default {
     ItemList,
   },
   data: () => ({}),
-  methods: {
-    mtDetailpage() {
-      this.$router.push("/Detailpage");
-    },
-  },
+  methods: {},
 };
 </script>

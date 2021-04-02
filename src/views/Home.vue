@@ -4,7 +4,7 @@
     <div class="image-container">
       <img src="../image/home.jpg" />
     </div>
-    <item-list :list="items"></item-list>
+    <item-list></item-list>
   </div>
 </template>
   
